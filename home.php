@@ -19,14 +19,11 @@ function print_styles() {
 
 add_action('wp_head', 'my_load_scripts');
 function my_load_scripts() {
-	//   <script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery-1.6.1.min.js"></script>
 	wp_enqueue_script( 'jquery' );
 
-	//	<script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery.easing.1.3.min.js"></script>
 	wp_register_script( 'jquery.easing', get_stylesheet_directory_uri() . '/js/jquery.easing.1.3.min.js', array( 'jquery' ), '1.3', true );
 	wp_enqueue_script( 'jquery.easing' );
 
-	//	<script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery.wt-rotator.min.js"></script>
 	wp_register_script( 'jquery.wt-rotator', get_stylesheet_directory_uri() . '/js/jquery.wt-rotator.min.js', array( 'jquery' ), '1.3', true );
 	wp_enqueue_script( 'jquery.wt-rotator' );
 }
