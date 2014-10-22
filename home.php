@@ -11,28 +11,34 @@ Template Name: home
  * @package Genesis
  */
 add_action('wp_head', 'print_styles');
-function print_styles() { ?>
-	   <link rel="stylesheet" type="text/css" href="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/wt-rotator.css"/>
-<?php }
+function print_styles() {
+	wp_register_style( 'wt-rotator', get_stylesheet_directory_uri() . '/wt-rotator.css' );
+	wp_enqueue_style( 'wt-rotator' );
+}
 
 
 add_action('wp_head', 'my_load_scripts');
 function my_load_scripts() {
-?>
-   <script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery-1.6.1.min.js"></script>
-	<script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery.easing.1.3.min.js"></script>
-	<script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery.wt-rotator.min.js"></script>
-<?php
+	//   <script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery-1.6.1.min.js"></script>
+	wp_enqueue_script( 'jquery' );
+
+	//	<script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery.easing.1.3.min.js"></script>
+	wp_register_script( 'jquery.easing', get_stylesheet_directory_uri() . '/js/jquery.easing.1.3.min.js', array( 'jquery' ), '1.3', true );
+	wp_enqueue_script( 'jquery.easing' );
+
+	//	<script type="text/javascript" src="http://www.optimumperformanceinstitute.com/wp-content/themes/roanne-program/js/jquery.wt-rotator.min.js"></script>
+	wp_register_script( 'jquery.wt-rotator', get_stylesheet_directory_uri() . '/js/jquery.wt-rotator.min.js', array( 'jquery' ), '1.3', true );
+	wp_enqueue_script( 'jquery.wt-rotator' );
 }
 
 
-add_action('wp_head', 'my_raw_script');
+add_action( 'wp_footer', 'my_raw_script', 99 );
 function my_raw_script() {
 	echo <<<JS
 		<script type="text/javascript">
-		$(document).ready(
+		jQuery(document).ready(
 			function() {
-				$(".container1").wtRotator({
+				jQuery(".container1").wtRotator({
 					width:904,
 					height:386,
 					thumb_width:16,

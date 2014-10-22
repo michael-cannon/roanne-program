@@ -1,0 +1,7 @@
+# CHANGELOG
+
+## 1.0RC1
+
+* Adapt for using latest jQuery
+* Move raw script call to bottom of footer
+* Move wp_head script and style calls to wp_enqueue
