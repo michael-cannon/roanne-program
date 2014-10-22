@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0RC1
+## 1.0
 
 * Adapt for using latest jQuery
 * Move raw script call to bottom of footer
