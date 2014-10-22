@@ -7,7 +7,7 @@ define( 'CHILD_THEME_NAME', 'OPI Living' );
 define( 'CHILD_THEME_URL', 'http://www.allstagesmarketing.com' );
 
 /** Add support for custom background */
-add_custom_background();
+add_theme_support( 'custom-background' );
 
 add_action('wp_head','print_print');
 function print_print() { ?>
